@@ -41,6 +41,8 @@ jobs:
 
       - name: Build binary
         run: task build
+        env:
+          CGO_ENABLED: "0"
 
       - name: Log in to GHCR
         uses: docker/login-action@v4
