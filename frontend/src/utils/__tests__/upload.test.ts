@@ -32,10 +32,13 @@ function simulateScanFiles(
     batchIndex++;
 
     if (entries.length > 0) {
+      const dirWithSlash = directory.endsWith("/")
+        ? directory
+        : `${directory}/`;
       for (const entry of entries) {
-        readEntry(entry, `${directory}/`);
+        readEntry(entry, dirWithSlash);
       }
-      readReaderContent(`${directory}/`);
+      readReaderContent(dirWithSlash);
     }
   }
 
